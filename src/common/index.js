@@ -1,10 +1,10 @@
 export const commonNavigationOptions = {
   headerStyle: {
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#24292e',
   },
   headerTintColor: '#fff',
   headerTitleStyle: {
     fontWeight: 'bold',
-    color: '#24292e'
+    color: 'white'
   },
 }
