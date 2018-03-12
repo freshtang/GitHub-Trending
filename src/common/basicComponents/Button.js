@@ -1,35 +1,43 @@
 import React from 'react'
 import {
-  StyleSheet,
   TouchableHighlight,
-  Text
+  View
 } from 'react-native'
 
 class Button extends React.Component {
   render() {
-    const { children } = this.props
+    let { children, style, onPress } = this.props
+    if(!style) {
+      style = {}
+    }
+    const newStyle = Object.assign({}, style, styles.style)
     return (
-      <TouchableHighlight style={styles.style}>
-        <Text>{children}</Text>
+      <TouchableHighlight
+        onPress={onPress}
+        style={newStyle}>
+        <View style={styles.content}>{children}</View>
       </TouchableHighlight>
     )
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   style: {
     backgroundColor: '#f4f6f9',
-    alignItems: 'center',
     borderRadius: 5,
-    paddingBottom: 3,
-    paddingTop: 3,
+    paddingBottom: 5,
+    paddingTop: 5,
     paddingLeft: 10,
     paddingRight: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
     borderWidth: 1,
     borderColor: '#dcdee1'
+  },
+  content: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    display: 'flex',
+    flexDirection: 'row',
   }
-})
+}
 
 export default Button

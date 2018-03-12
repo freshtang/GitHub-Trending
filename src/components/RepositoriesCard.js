@@ -3,7 +3,8 @@ import {
   Text,
   View,
   StyleSheet,
-  Image
+  Image,
+  TouchableHighlight
 } from 'react-native'
 
 import  { Button }  from '../common/basicComponents/index'
@@ -52,15 +53,21 @@ class RepositoriesCard extends React.Component {
           <View style={{ flex: 1, flexDirection: 'row'}}>
             {avatar ? <Image source={{url: avatar}} style={styles.avatar} /> : ''}
             <View>
-              <Text style={{ fontSize: 20, color: '#0366d6'}}>{name.split('/')[0]}/<Text style={{ fontWeight: 'bold', color: '#0366d6', fontSize: 20}}>{name.split('/')[1]}</Text></Text>
+              <TouchableHighlight
+                onPress={()=>{
+                  this.props.navigation.navigate(('RepositoriesDetail'), {
+                    name: name
+                  })
+                }}
+                underlayColor='transparent'>
+                <Text style={{ fontSize: 20, color: '#0366d6'}}>{name.split('/')[0]}/<Text style={{ fontWeight: 'bold', color: '#0366d6', fontSize: 20}}>{name.split('/')[1]}</Text></Text>
+              </TouchableHighlight>
             </View>
           </View>
           <View style={{ justifyContent: 'center'}}>
             <Button>
-              <View style={{ justifyContent: 'center', flexDirection: 'row', paddingTop: 5}}>
-                <Image source={require('../static/img/star.png')} style={{width: 14, height: 16, paddingRight: 3}} />
-                <Text style={{ fontWeight: 'bold'}}>Star</Text>
-              </View>
+              <Image source={require('../static/img/star.png')} style={{width: 14, height: 16, paddingRight: 3}} />
+              <Text style={{ fontWeight: 'bold'}}>Star</Text>
             </Button>
           </View>
         </View>
