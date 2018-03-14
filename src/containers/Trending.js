@@ -70,7 +70,7 @@ class Trending extends React.Component{
               <Ionicons name="md-arrow-dropdown" size={20} color="white" />
             </View>
           </TouchableHighlight>
-          {params.isShowPopover &&
+          {!!params.isShowPopover &&
               <View style={{ borderWidth: 1, position: 'absolute', top: '70%', borderColor: '#d6d8db'}}>
                 <View style={{width: 200, backgroundColor: '#f6f8fa', paddingTop: 8,
                   paddingBottom: 8, paddingLeft: 30, paddingRight: 30, borderBottomWidth: 1, borderColor: '#eaecef', zIndex: 10}}>
@@ -95,7 +95,7 @@ class Trending extends React.Component{
                 })}
               </View>
           }
-          {params.isShowPopover &&
+          {!!params.isShowPopover &&
             <TouchableOpacity
               style={{
                 position: 'absolute', top: -height, left: -width, height: 2 * height, width: 2 * width,
@@ -269,9 +269,7 @@ class Trending extends React.Component{
     )
     return (
       <View style={styles.container}>
-        
         <View style={{width: '100%'}}>
-          
           <FlatList
             ListHeaderComponent = {flatListHeader}
             data={data}
@@ -288,7 +286,6 @@ class Trending extends React.Component{
               />}
           />
         </View>
-        
       </View>
     )
   }

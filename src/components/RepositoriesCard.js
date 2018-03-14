@@ -53,9 +53,8 @@ class RepositoriesCard extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <View style={styles.header}>
+        {<View style={styles.header}>
           <View style={{ flex: 1, flexDirection: 'row'}}>
-            {avatar ? <Image source={{url: avatar}} style={styles.avatar} /> : ''}
             <View>
               <TouchableHighlight
                 onPress={()=>{
@@ -74,7 +73,7 @@ class RepositoriesCard extends React.Component {
               <Text style={{ fontWeight: 'bold'}}>Star</Text>
             </Button>
           </View>
-        </View>
+        </View>}
         <View style={{ marginBottom: 8}}>
           <Text style={{color: '#586069'}}>{description}</Text>
         </View>
@@ -87,7 +86,7 @@ class RepositoriesCard extends React.Component {
             <Ionicons style={{paddingRight: 3}} name="md-git-branch" size={17} color="#707070" />
             <Text style={styles.tagText}>{fork}</Text>
           </View>
-          {language && <View style={styles.bottomTag}>
+          {!!language && <View style={styles.bottomTag}>
             <View style={{
               backgroundColor: color,
               borderRadius: 8,
@@ -103,11 +102,10 @@ class RepositoriesCard extends React.Component {
             {contributors.map((contributor) =>
               <Image key={contributor} source={{url: contributor}} style={{width: 20, height: 20, marginLeft: 3}} />)}
           </View>
-          {meta && <View style={styles.bottomTag}>
+          {!!meta && <View style={styles.bottomTag}>
             <Ionicons style={{paddingRight: 3}} name="md-star" size={17} color="#707070" />
             <Text style={styles.tagText}>{meta}</Text>
           </View>}
-          
         </View>
       </View>
     )
