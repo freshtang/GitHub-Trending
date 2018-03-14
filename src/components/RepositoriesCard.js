@@ -6,6 +6,7 @@ import {
   Image,
   TouchableHighlight
 } from 'react-native'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
 import  { Button }  from '../common/basicComponents/index'
 
@@ -66,7 +67,7 @@ class RepositoriesCard extends React.Component {
           </View>
           <View style={{ justifyContent: 'center'}}>
             <Button>
-              <Image source={require('../static/img/star.png')} style={{width: 14, height: 16, paddingRight: 3}} />
+              <Ionicons style={{paddingRight: 3}} name="md-star" size={17} color="black" />
               <Text style={{ fontWeight: 'bold'}}>Star</Text>
             </Button>
           </View>
@@ -76,11 +77,11 @@ class RepositoriesCard extends React.Component {
         </View>
         <View style={{justifyContent: 'flex-start', flexWrap: 'wrap', flexDirection: 'row', display: 'flex', width: '100%'}}>
           <View style={styles.bottomTag}>
-            <Image source={require('../static/img/grey_star.png')} style={{width: 14, height: 16, paddingRight: 3}} />
+            <Ionicons style={{paddingRight: 3}} name="md-star" size={17} color="#707070" />
             <Text style={styles.tagText}>{watchers}</Text>
           </View>
           <View style={styles.bottomTag}>
-            <Image source={require('../static/img/code-fork.png')} style={{width: 14, height: 16, paddingRight: 3}} />
+            <Ionicons style={{paddingRight: 3}} name="md-git-branch" size={17} color="#707070" />
             <Text style={styles.tagText}>{fork}</Text>
           </View>
           {language && <View style={styles.bottomTag}>
@@ -99,10 +100,10 @@ class RepositoriesCard extends React.Component {
             {contributors.map((contributor) =>
               <Image key={contributor} source={{url: contributor}} style={{width: 20, height: 20, marginLeft: 3}} />)}
           </View>
-          <View style={styles.bottomTag}>
-            <Image source={require('../static/img/grey_star.png')} style={{width: 14, height: 16, paddingRight: 3}} />
+          {meta && <View style={styles.bottomTag}>
+            <Ionicons style={{paddingRight: 3}} name="md-star" size={17} color="#707070" />
             <Text style={styles.tagText}>{meta}</Text>
-          </View>
+          </View>}
           
         </View>
       </View>
@@ -134,6 +135,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     marginRight: '5%',
     flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 5
   },
   tagText: {

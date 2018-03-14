@@ -4,7 +4,6 @@ import {
   StyleSheet,
   FlatList,
   Text,
-  Image,
   TouchableHighlight,
   Dimensions,
   TouchableOpacity,
@@ -112,9 +111,7 @@ class Trending extends React.Component{
           onPress={() => { params.reflesh()}}
           style={ {marginRight: 15}}>
           <View>
-            <Image source={require('../static/img/reflesh.png')}
-              style={{width: 24, height: 24}}
-            />
+            <Ionicons name="md-refresh" size={30} color="white" />
           </View>
         </TouchableHighlight>
       )

@@ -48,8 +48,20 @@ export function fetchNetData(url, type) {
         }).catch((error)=> {
           reject(error)
         })
+    } else {
+      fetch(url)
+        .then((response)=>response.json())
+        .catch((error)=> {
+          reject(error)
+        }).then((responseData)=> {
+          if (!responseData || !responseData.items) {
+            reject('responseData is null')
+          } else {
+            resolve(responseData.items)
+            saveRepository(url, responseData.items)
+          }
+        })
     }
-
   })
   
 }
