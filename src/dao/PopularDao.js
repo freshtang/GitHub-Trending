@@ -9,7 +9,9 @@ class PopularDao{
         })
         .catch(err => {
           fetchNetData(url, 'Popular')
-            .then(data => {resolve(data)})
+            .then(data => {
+              resolve(data)
+            })
             .catch(err => {reject(err)})
         })
     })

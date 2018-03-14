@@ -1,18 +1,14 @@
 import React from 'react'
 import {
   View,
-  FlatList,
   StyleSheet,
   TouchableHighlight,
-  Text
 } from 'react-native'
 import { StackNavigator } from 'react-navigation'
-import { CircleSnail } from 'react-native-progress'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ScrollableTabView, {ScrollableTabBar} from 'react-native-scrollable-tab-view'
 
 import { commonNavigationOptions } from '../common'
-import RepositoriesCard from '../components/RepositoriesCard'
 import PopularDao from '../dao/PopularDao'
 import { fetchNetData } from '../dao/common'
 import PopularTab from '../components/PopularTab'
@@ -120,11 +116,6 @@ class Popular extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-  }
-})
 
 export default StackNavigator({
   Popular: { screen: Popular },

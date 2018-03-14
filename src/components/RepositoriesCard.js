@@ -12,12 +12,15 @@ import  { Button }  from '../common/basicComponents/index'
 
 class RepositoriesCard extends React.Component {
   formatDescription(des){
-    const sindex = des.indexOf('<g-emoji'),
-      eindex = des.indexOf('>')
-    let result = des.slice(0, sindex) + des.slice(eindex + 1)
-    const lindex = result.indexOf('</g-emoji>')
-    result = result.slice(0, lindex) + result.slice(lindex + 10)
-    return result
+    if(des) {
+      const sindex = des.indexOf('<g-emoji'),
+        eindex = des.indexOf('>')
+      let result = des.slice(0, sindex) + des.slice(eindex + 1)
+      const lindex = result.indexOf('</g-emoji>')
+      result = result.slice(0, lindex) + result.slice(lindex + 10)
+      return result
+    }
+    
   }
   render() {
     const { fork, watchers, language, owner, name, avatar, meta } = this.props

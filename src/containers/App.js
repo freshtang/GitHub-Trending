@@ -1,6 +1,7 @@
 import Trending from './Trending'
 import React from 'react'
 import Popular from './Popular'
+import Search from './Search'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { TabNavigator, TabBarBottom } from 'react-navigation'
 
@@ -11,6 +12,9 @@ const App = TabNavigator(
     },
     Popular: {
       screen: Popular
+    },
+    Search: {
+      screen: Search
     }
   },
   {
@@ -22,6 +26,8 @@ const App = TabNavigator(
           iconName = `ios-flame${focused ? '' : '-outline'}`
         } else if (routeName === 'Trending') {
           iconName = `${focused ? 'md-trending-up' : 'ios-trending-up-outline'}`
+        } else if (routeName === 'Search') {
+          iconName = `${focused ? 'md-search' : 'ios-search-outline'}`
         } else {
           iconName = `ios-options${focused ? '' : '-outline'}`
         }

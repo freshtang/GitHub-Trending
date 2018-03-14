@@ -50,21 +50,17 @@ export default class PopularTab extends React.Component {
     const { data } = this.state
     return (
       <View style={{
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+        height: '100%'
       }}>
         {!this.state.isloaded && <View style={{
-          position: 'absolute',
-          right: 0,
-          left: 0,
-          top: 0,
-          bottom: 0,
-          backgroundColor: 'black',
-          zIndex: 1,
+          width: '100%',
           alignItems: 'center',
-          justifyContent: 'center',
-          opacity: 0.4
+          borderColor: '#e1e4e8',
+          paddingBottom: 10,
+          paddingTop: 10
         }}>
-          <CircleSnail style={{opacity: 1}}></CircleSnail>
+          <CircleSnail></CircleSnail>
         </View>}
         
         <FlatList
